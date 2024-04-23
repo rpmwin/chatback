@@ -38,13 +38,6 @@ const login = async (req, res) => {
         // Set cookie using cookie-parser middleware
         res.cookie("token", token, {
             httpOnly: true,
-            maxAge: 24 * 60 * 60 * 1000,
-            path: "/",
-            // sameSite: "strict",
-            secure: true,
-            // domain: ".onrender.com",
-            // domain: "localhost",
-            // Other cookie options can be added here, like secure, sameSite, etc.
         });
 
         // Send response after setting cookie
