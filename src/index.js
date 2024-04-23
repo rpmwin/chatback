@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
     cors({
-        origin: "http://localhost:5173",
+        origin: "6626b1dbc5b52a0008ffe5d9--rpm-chat-front.netlify.app",
         credentials: true,
     })
 );
