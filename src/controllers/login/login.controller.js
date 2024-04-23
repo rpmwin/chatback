@@ -38,6 +38,8 @@ const login = async (req, res) => {
         // Set cookie using cookie-parser middleware
         res.cookie("token", token, {
             httpOnly: true,
+            path: "/",
+            domain: ".netlify.app",
         });
 
         // Send response after setting cookie
