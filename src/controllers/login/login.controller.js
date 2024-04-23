@@ -42,7 +42,7 @@ const login = async (req, res) => {
             path: "/",
             // sameSite: "strict",
             secure: true,
-            domain: "https://rpm-chat-front.netlify.app/",
+            domain: ".onrender.com",
             // domain: "localhost",
             // Other cookie options can be added here, like secure, sameSite, etc.
         });
