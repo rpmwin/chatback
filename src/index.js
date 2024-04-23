@@ -31,7 +31,7 @@ connectDB()
 
         const io = new Server(server, {
             cors: {
-                origin: "*",
+                origin: "https://rpm-chat-front.netlify.app",
                 methods: ["GET", "POST"],
                 credentials: true,
             },
