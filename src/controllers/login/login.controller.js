@@ -40,9 +40,9 @@ const login = async (req, res) => {
             httpOnly: true,
             maxAge: 24 * 60 * 60 * 1000,
             path: "/",
-            sameSite: "strict",
+            // sameSite: "strict",
             secure: true,
-            
+            domain: "chatback-ryc1.onrender.com",
             // domain: "localhost",
             // Other cookie options can be added here, like secure, sameSite, etc.
         });
