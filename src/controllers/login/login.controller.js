@@ -23,29 +23,31 @@ const login = async (req, res) => {
             return res.status(401).json({ message: "Invalid credentials" });
         }
 
-        const tokenData = {
+        // Create JWT payload
+        const tokenPayload = {
             userId: user._id,
             username: user.username,
             email: user.email,
         };
 
-        const token = jwt.sign(tokenData, process.env.JWT_SECRET, {
+        // Generate JWT token
+        const token = jwt.sign(tokenPayload, process.env.JWT_SECRET, {
             expiresIn: "1d",
         });
 
-        console.log("token", token);
+        // Send JWT token in response headers
+        res.setHeader("Authorization", "Bearer " + token);
 
-        // Set cookie using cookie-parser middleware
-        res.cookie("token", token, {
-            httpOnly: true,
-            path: "/",
-            domain: ".netlify.app",
-        });
-
-        // Send response after setting cookie
+        // Send user information along with token (optional)
         return res.json({
             success: true,
             message: "User logged in successfully",
+            token: token,
+            user: {
+                userId: user._id,
+                username: user.username,
+                email: user.email,
+            },
         });
     } catch (error) {
         console.log("Something went wrong in the login controller", error);
